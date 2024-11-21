@@ -1,32 +1,27 @@
-<section>
-    <h1 class="heading">
-        About Our Fencing Club
-    </h1>
-
-    <p>
-        We are a community organization that brings together individuals with a passion for the sport of fencing.
-        Members of the club have the opportunity to participate in fencing classes, workshops, and sparring sessions
-        under the guidance of experienced coaches.
-    </p>
-    <img src="images/fencer.png" alt="Lego Fencer">
-    <p>
-        The club provides a supportive and encouraging environment for fencers of all levels, from beginners to advanced
-        athletes, to improve their skills, compete in tournaments, and enjoy the camaraderie of fellow fencers. 
-    </p>
-
-</section>
-
-<script>
-    const firstHeading = document.querySelector(".heading");
-
-    document.addEventListener("DOMContentLoaded", () => firstHeading.focus());
-    // Removes tabindex=-1 from the heading due to potentional bugs
-    firstHeading.addEventListener("blur", () => firstHeading.removeAttribute("tabindex"));
-</script>
-
-<style>
-    img{
-        width: 100%;
-    }
-</style>
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="scripts/main.js"></script>
+    <link rel="stylesheet" href="styles/main.css">
+    <title>The Pointy End - Fencing Club</title>
+</head>
+<body>
+    <section>
+        <h1 class="heading">
+            The Pointy End - Fencing Club
+        </h1>
+        <p>
+            We are a community organization that brings together individuals with a passion for the sport of fencing.
+            Members of the club have the opportunity to participate in fencing classes, workshops, and sparring sessions
+            under the guidance of experienced coaches.
+        </p>
+        <img src="images/fencer.png" alt="Lego Fencer">
+        <p>
+            The club provides a supportive and encouraging environment for fencers of all levels, from beginners to advanced
+            athletes, to improve their skills, compete in tournaments, and enjoy the camaraderie of fellow fencers. 
+        </p>
+    </section>  
+</body>
+</html>
