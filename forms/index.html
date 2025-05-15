@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="scripts/main.js"></script>
+    <link rel="stylesheet" href="styles/main.css">
+    <title>Book store - Once Upon a Time</title>
+</head>
+<body>
+    <main>
+        <h1 class="heading" tabindex="-1">
+            Checkout  
+        </h1>
+        <p>All fields except "Apt, Suite, Building" are required</p>
+        <section>
+            <h2>
+                Shipping Address
+            </h2>
+            <form action="">
+                <div class="label-set">
+                    <label for="first-name">First Name</label>
+                    <input type="text" id="first-name" autocomplete="given-name" required>
+                </div>
+                <div class="label-set">
+                    <label for="last-name">Last Name</label>
+                    <input type="text" id="last-name" autocomplete="family-name" required>
+                </div>
+                <div class="label-set">
+                    <label for="street-address">Street Address</label>
+                    <input type="text" id="street-address" autocomplete="address-line1" required>
+                </div>
+                <div class="label-set half-width">
+                    <fieldset>
+                        <legend>
+                            Enter your phone number. Numbers only.
+                        </legend>
+                        <div class="number">
+                            <span aria-hidden="true">(</span>
+                            <input type="number" aria-label="Area Code">
+                            <div aria-hidden="true">)</div>
+                                
+                            <span aria-hidden="true">-</span>
+                             <input type="number" aria-label="Exhange">
+                            <span aria-hidden="true">-</span>
+                             <input type="number" aria-label="Number">
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="label-set">
+                    <label for="street-address2">Apt, Suite, Building (Optional)</label>
+                    <input type="text" id="street-address2" autocomplete="address-line1">
+                </div>
+                <div class="label-set half-width">
+                    <label for="zip-code">Zipcode</label>
+                    <input type="text" id="zip-code" autocomplete="postal-code" required>
+                </div>
+                <div class="label-set half-width" >
+                    <label for="city-state">City, State</label>
+                    <select id="city-state" required>
+                        <option value="Tulsa, Oklahoma">Tulsa, OK</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="label-set">
+                    <label for="country">Country</label>
+                    <input type="text" id="country" value="United States" disabled>
+                </div>
+                <button type="submit">Continue to Payment</button>
+            </form>
+        </section>
+    </main>
+</body>
+</html>
