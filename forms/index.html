@@ -12,7 +12,7 @@
         <h1 class="heading" tabindex="-1">
             Checkout  
         </h1>
-        <p>All fields except "Apt, Suite, Building" are required</p>
+        <p>All fields except "Apt, Suite, Building" are required.</p>
         <section>
             <h2>
                 Shipping Address
@@ -37,13 +37,13 @@
                         </legend>
                         <div class="number">
                             <span aria-hidden="true">(</span>
-                            <input type="number" aria-label="Area Code">
+                            <input type="text" pattern="\d{3}" aria-label="Area Code">
                             <!-- Stupid editor doesn't allow a span so hence the stupid div-->
                             <div aria-hidden="true" style="display: inline;">)</div>
                             <span aria-hidden="true">-</span>
-                             <input type="number" aria-label="Exhange">
+                             <input type="text" pattern="\d{3}" aria-label="Exhange">
                             <span aria-hidden="true">-</span>
-                             <input type="number" aria-label="Number">
+                             <input type="text" pattern="\d{4}" aria-label="Number">
                         </div>
                     </fieldset>
                 </div>
@@ -51,21 +51,23 @@
                     <label for="street-address2">Apt, Suite, Building (Optional)</label>
                     <input type="text" id="street-address2" autocomplete="address-line1">
                 </div>
-                <div class="label-set half-width">
+                <div class="fields-close">
+                <div class="label-set half-width tiny">
                     <label for="zip-code">Zipcode</label>
                     <input type="text" id="zip-code" autocomplete="postal-code" required>
                 </div>
-                <div class="label-set half-width" >
-                    <label for="city-state">City, State</label>
-                    <select id="city-state" required>
-                        <option value="Tulsa, Oklahoma">Tulsa, OK</option>
-                        <option value="other">Other</option>
-                    </select>
+                    <div class="label-set half-width tiny" >
+                        <label for="city-state">City, State</label>
+                        <select id="city-state" required>
+                            <option value="Tulsa, Oklahoma">Tulsa, OK</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
                 </div>
-                <div class="label-set">
-                    <label for="country">Country</label>
-                    <input type="text" id="country" value="United States" disabled>
-                </div>
+                    <div class="label-set">
+                        <label for="country">Country</label>
+                        <input type="text" id="country" value="United States" disabled>
+                    </div>
                 <button type="submit">Continue to Payment</button>
             </form>
         </section>
