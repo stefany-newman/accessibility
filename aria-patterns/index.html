@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,19 +8,38 @@
     <link rel="stylesheet" href="styles/main.css">
     <title>Aria Patterns</title>
 </head>
+
 <body>
     <section>
         <h1 class="heading" tabindex="-1">
             Aria Patterns
         </h1>
-            <ul>
-                <li>
-                    <a href="https://www.w3.org/WAI/ARIA/apg/patterns/tabs/">Tab</a>
-                </li>
-            </ul>
-        
-        
+        <ul>
+            <li>
+                <a href="https://www.w3.org/WAI/ARIA/apg/patterns/tabs/">Tab</a>
+            </li>
+        </ul>
+        <section>
+            <h2>Tabs</h2>
+            <div class="tabs-parent">
+                <div role="tablist">
+                    <button type="button" role="tab" id="tab-1" aria-selected="true" tabindex="0" class="tab">Tab 1</button>
+                    <button type="button" role="tab" id="tab-2" aria-selected="false" tabindex="-1" class="tab">Tab 2</button>
+                    <button type="button" role="tab" id="tab-3" aria-selected="false" tabindex="-1" class="tab">Tab 3</button>
+                    <button type="button" role="tab" id="tab-4" aria-selected="false" tabindex="-1" class="tab">Tab 4</button>
+                </div>
+            </div>
+            <div class="tabpanel" role="tabpanel">
+                <div aria-labelledby="tab-1" class="tabpanel" id="tabpanel-1">Content 1</div>
+                <div aria-labelledby="tab-2" class="tabpanel" id="tabpanel-2">Content 2</div>
+                <div aria-labelledby="tab-3" class="tabpanel" id="tabpanel-3">Content 3</div>
+                <div aria-labelledby="tab-4" class="tabpanel" id="tabpanel-4">Content 4</div>
+            </div>
+        </section>
+
+
     </section>
 
 </body>
+
 </html>
