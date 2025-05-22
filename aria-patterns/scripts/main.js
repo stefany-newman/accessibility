@@ -1,6 +1,8 @@
+const tabList = document.querySelector("#tablist");
 const tabs = document.querySelectorAll(".tab");
 const tabPanelContent = document.querySelectorAll(".tabpanel-content");
 
+console.log(tablist);
 
 const toggleAttributeValue = (element, attribute) => {
     let customBoolean = "false";
@@ -11,6 +13,11 @@ const toggleAttributeValue = (element, attribute) => {
       }
     element.setAttribute(attribute, customBoolean);
 }
+
+
+
+
+
 tabs.forEach((tab, index) => {
     tab.addEventListener("click", (e) => {
         let previouslySelectedTab = document.querySelector(".tab[aria-selected='true'");
