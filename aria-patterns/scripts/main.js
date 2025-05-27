@@ -15,10 +15,14 @@ const toggleAttributeValue = (element, attribute) => {
 }
 
 
+// document.addEventListener("keydown", (e) => {
+//     if(e.code === "ArrowLeft")
+//     {
+//         console.log(e.code, typeof e.code);
+//     }
+// });
 
-
-
-tabs.forEach((tab, index) => {
+ tabs.forEach((tab, index) => {
     tab.addEventListener("click", (e) => {
         let previouslySelectedTab = document.querySelector(".tab[aria-selected='true'");
         console.log(previouslySelectedTab.id.slice(-1));
@@ -38,3 +42,4 @@ tabs.forEach((tab, index) => {
         }
     })
 });
+
