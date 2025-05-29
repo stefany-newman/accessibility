@@ -33,6 +33,10 @@ const toggleTabContentlVisibility = (selectedTab, tabContent) => {
     }
 }
 
+// TO DO - Add a function to check if tab panels 
+// have an interactive element as a first child 
+// and inject tabindex=0 if not, as per best practices. 
+
 
 // Roving tabindex in progress
 document.addEventListener("keydown", (e) => {
