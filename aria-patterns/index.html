@@ -19,26 +19,22 @@
                 <a href="https://www.w3.org/WAI/ARIA/apg/patterns/tabs/">Tab</a>
             </li>
         </ul>
-        <section>
+    </section>
+        <section class="tabs-parent">
             <h2>Tabs</h2>
-            <div class="tabs-parent">
-                <div role="tablist" id="tablist">
+                <div class="tab-dividers" role="tablist" id="tablist">
                     <button type="button" role="tab" id="tab-1" aria-selected="true" tabindex="0" class="tab">Tab 1</button>
                     <button type="button" role="tab" id="tab-2" aria-selected="false" tabindex="-1" class="tab">Tab 2</button>
                     <button type="button" role="tab" id="tab-3" aria-selected="false" tabindex="-1" class="tab">Tab 3</button>
                     <button type="button" role="tab" id="tab-4" aria-selected="false" tabindex="-1" class="tab">Tab 4</button>
                 </div>
-            </div>
-            <div class="tabpanel" role="tabpanel">
+            <div class="tabpanel tab-dividers" role="tabpanel">
                 <div aria-labelledby="tab-1" class="tabpanel-content" id="tabpanel-content-1">Content 1</div>
                 <div aria-labelledby="tab-2" class="tabpanel-content" id="tabpanel-content-2" hidden>Content 2</div>
                 <div aria-labelledby="tab-3" class="tabpanel-content" id="tabpanel-content-3" hidden>Content 3</div>
                 <div aria-labelledby="tab-4" class="tabpanel-content" id="tabpanel-content-4" hidden>Content 4</div>
             </div>
         </section>
-
-
-    </section>
 </body>
 
 </html>

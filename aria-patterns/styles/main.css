@@ -349,16 +349,28 @@
   }
 
 
-.tab[aria-selected="true"]{
-    border: 2px solid darkorange;
-}
-
-button.tab{
-    background: none;
+.tab{
+    background: white;
     border: 1px solid transparent;
     color: #585E66;
+    padding: 15px;
+    border-radius: 5px 5px 0 0;
+    &[aria-selected="true"]{
+        border: 1px solid #DFE3E7;
+        border-bottom: 0;
+        position: relative;
+        top: 2px;
+    }
 }
 
 .tabpanel{
-    border-top: #DFE3E7;
+    border-top: 1px solid #DFE3E7;
+}
+
+section{
+    margin: 20px;
+}
+
+.tabpanel{
+    padding-top:20px;
 }
