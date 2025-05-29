@@ -14,6 +14,10 @@ const toggleAttributeValue = (element, attribute) => {
     element.setAttribute(attribute, customBoolean);
 }
 
+const getTabNumber = (selectedTab) => {
+    return selectedTab.id.substring(selectedTab.id.indexOf("-")+1);
+}
+
 const unSelectTab = (element) => {
     element.setAttribute("aria-selected", "false");
     element.setAttribute("tabindex", "-1");
@@ -30,41 +34,21 @@ const toggleTabContentlVisibility = (selectedTab, tabContent) => {
 }
 
 
-// document.addEventListener("keydown", (e) => {
-//     if(e.code === "ArrowLeft")
-//     {
-//         console.log(e.code, typeof e.code);
-//     }
-// });
-
-//  tabs.forEach((tab, index) => {
-//     tab.addEventListener("click", (e) => {
-//         let previouslySelectedTab = document.querySelector(".tab[aria-selected='true'");
-//         console.log(previouslySelectedTab.id.slice(-1));
-//         if(e.currentTarget.getAttribute("aria-selected") === "false"){
-//             toggleAttributeValue(previouslySelectedTab, "aria-selected");
-//         toggleAttributeValue(tab, "aria-selected", 'true');
-//         tabPanelContent[index].toggleAttribute("hidden");
-//         e.currentTarget.setAttribute("tabindex", "0");
-//         console.log(e.currentTarget.getAttribute("aria-selected"));
-        
-//         previouslySelectedTab.setAttribute("tabindex", "-1");
-//         console.log(tabPanelContent);
-//         tabPanelContent[previouslySelectedTab.id.slice(-1)-1].toggleAttribute("hidden");
-
-//         }else{
-//             console.log("can't disable itself");
-//         }
-//     })
-// });
+// Roving tabindex in progress
+document.addEventListener("keydown", (e) => {
+    if(e.code === "ArrowLeft")
+    {
+        console.log(e.code, typeof e.code);
+    }
+});
 
 tabList.addEventListener("click", (e) => {
     if(e.target.getAttribute("role") === "tab" && e.target.getAttribute("aria-selected") === "false"){
        unSelectTab(selectedTab);
        selectedTab = e.target;
-       const tabNumber = selectedTab.id.substring(selectedTab.id.indexOf("-")+1);
        selectTab(selectedTab);
        selectedTabContent.toggleAttribute("hidden");
+       const tabNumber = getTabNumber(selectedTab);
        selectedTabContent = document.querySelector("#tabpanel-content-"+tabNumber);
        selectedTabContent.toggleAttribute("hidden");
        
