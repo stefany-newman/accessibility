@@ -348,6 +348,8 @@
     display: none;
   }
 
+  /* Tabs */ 
+
 
 .tab{
     background: white;
@@ -374,3 +376,5 @@ section{
 .tabpanel{
     padding-top:20px;
 }
+
+/* Modal Dialogs (this one is gonna be rough) */
