@@ -70,4 +70,3 @@ tabList.addEventListener("click", (e) => {
        
     }
 });
-
