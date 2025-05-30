@@ -378,3 +378,7 @@ section{
 }
 
 /* Modal Dialogs (this one is gonna be rough) */
+
+.modal{
+    border: 1px solid red;
+}
