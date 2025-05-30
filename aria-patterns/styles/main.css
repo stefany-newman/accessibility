@@ -349,7 +349,9 @@
   }
 
   /* Tabs */ 
-
+.tablist{
+    display:flex;
+}
 
 .tab{
     background: white;
