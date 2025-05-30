@@ -382,3 +382,22 @@ section{
 .modal{
     border: 1px solid red;
 }
+
+img{
+    width: 100%;
+}
+
+.modal-content{
+    & .top-content{
+        display: flex;
+        align-items: self-start;
+    }
+    & .bottom-content{
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    & .model-child{
+        flex:50%;
+    }
+}
