@@ -72,4 +72,12 @@ tabList.addEventListener("click", (e) => {
        selectedTabContent.toggleAttribute("hidden");
 });
 
-//window.addEventListener("DOMContentLoaded", () => {})
+// Progressive enhancement
+window.addEventListener("DOMContentLoaded", () => {
+    tabPanelContent.forEach((tabPanel, index) => {
+        if(index > 0) {
+            console.log(tabPanel, typeof tabPanel);
+            tabPanel.toggleAttribute("hidden");
+        }
+    });
+});
