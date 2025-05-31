@@ -4,18 +4,8 @@ const tabPanelContent = document.querySelectorAll(".tabpanel-content");
 let selectedTab = document.querySelector(".tab[aria-selected='true'");
 let selectedTabContent = document.querySelector("#tabpanel-content-1");
 
-const toggleAttributeValue = (element, attribute) => {
-    let customBoolean = "false";
-    if (element.getAttribute(attribute) === 'true') {
-        customBoolean = false;
-      } else {
-        customBoolean = true;
-      }
-    element.setAttribute(attribute, customBoolean);
-}
-
 const getTabNumber = (selectedTab) => {
-    return selectedTab.id.substring(selectedTab.id.indexOf("-")+1);
+    return Number(selectedTab.id.substring(selectedTab.id.indexOf("-")+1));
 }
 
 const unSelectTab = (element) => {
@@ -25,12 +15,31 @@ const unSelectTab = (element) => {
 const selectTab = (element) => {
     element.setAttribute("aria-selected", "true");
     element.setAttribute("tabindex", "0");
+    element.focus();
 }
 
 const toggleTabContentlVisibility = (selectedTab, tabContent) => {
     if(!null(tabContent.getAttribute("hidden"))){
         tabContent.toggleAttribute("hidden");
     }
+}  
+
+const moveFocusToNextTab = (currentTab) => {
+    unSelectTab(currentTab);
+    const toBeSelectedTab = currentTab;
+    const tabNumber = getTabNumber(toBeSelectedTab);
+    const nextTabNumber = tabNumber < tabs.length ? tabNumber + 1 : 1;
+    const nextTab = document.querySelector("#tab-"+nextTabNumber);
+    selectTab(nextTab);
+}
+
+const moveFocusToPreviousTab = (currentTab) =>{
+    unSelectTab(currentTab);
+    const toBeSelectedTab = currentTab;
+    const tabNumber = getTabNumber(toBeSelectedTab);
+    const previousTabNumber = tabNumber <= 1 ? tabs.length : tabNumber - 1;
+    const nextTab = document.querySelector("#tab-"+previousTabNumber);
+    selectTab(nextTab);
 }
 
 // TO DO - Add a function to check if tab panels 
@@ -40,14 +49,20 @@ const toggleTabContentlVisibility = (selectedTab, tabContent) => {
 
 // Roving tabindex in progress
 document.addEventListener("keydown", (e) => {
-    if(e.code === "ArrowLeft")
-    {
-        console.log(e.code, typeof e.code);
+    if(document.activeElement.getAttribute("role") === "tab") {
+        if(e.code === "ArrowRight")
+        {
+            moveFocusToNextTab(e.target);
+    
+        }
+        if(e.code === "ArrowLeft")
+        {
+            moveFocusToPreviousTab(e.target);
+        }
     }
 });
 
 tabList.addEventListener("click", (e) => {
-    if(e.target.getAttribute("role") === "tab" && e.target.getAttribute("aria-selected") === "false"){
        unSelectTab(selectedTab);
        selectedTab = e.target;
        selectTab(selectedTab);
@@ -55,6 +70,6 @@ tabList.addEventListener("click", (e) => {
        const tabNumber = getTabNumber(selectedTab);
        selectedTabContent = document.querySelector("#tabpanel-content-"+tabNumber);
        selectedTabContent.toggleAttribute("hidden");
-       
-    }
 });
+
+//window.addEventListener("DOMContentLoaded", () => {})
