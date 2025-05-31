@@ -53,7 +53,6 @@ document.addEventListener("keydown", (e) => {
         if(e.code === "ArrowRight")
         {
             moveFocusToNextTab(e.target);
-    
         }
         if(e.code === "ArrowLeft")
         {
