@@ -360,7 +360,7 @@
     padding: 15px;
     border-radius: 5px 5px 0 0;
     &[aria-selected="true"]{
-        border: 1px solid #DFE3E7;
+        border: 1px solid #000;
         border-bottom: 0;
         position: relative;
         top: 2px;
@@ -368,7 +368,7 @@
 }
 
 .tabpanel{
-    border-top: 1px solid #DFE3E7;
+    border-top: 1px solid #000;
 }
 
 section{
