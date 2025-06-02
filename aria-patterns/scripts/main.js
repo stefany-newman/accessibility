@@ -16,13 +16,7 @@ const selectTab = (element) => {
     element.setAttribute("aria-selected", "true");
     element.setAttribute("tabindex", "0");
     element.focus();
-}
-
-const toggleTabContentlVisibility = (selectedTab, tabContent) => {
-    if(!null(tabContent.getAttribute("hidden"))){
-        tabContent.toggleAttribute("hidden");
-    }
-}  
+} 
 
 const moveFocusToNextTab = (currentTab) => {
     unSelectTab(currentTab);
