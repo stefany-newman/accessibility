@@ -9,11 +9,9 @@ const getTabNumber = (selectedTab) => {
 }
 
 const unSelectTab = (element) => {
-    element.setAttribute("aria-selected", "false");
     element.setAttribute("tabindex", "-1");
 }
 const selectTab = (element) => {
-    element.setAttribute("aria-selected", "true");
     element.setAttribute("tabindex", "0");
     element.focus();
 } 
@@ -57,19 +55,23 @@ document.addEventListener("keydown", (e) => {
 // Activating the tab
 tabList.addEventListener("click", (e) => {
        unSelectTab(selectedTab);
+       selectedTab.setAttribute("aria-selected", "false");
        selectedTab = e.target;
        selectTab(selectedTab);
        selectedTabContent.toggleAttribute("hidden");
        const tabNumber = getTabNumber(selectedTab);
        selectedTabContent = document.querySelector("#tabpanel-content-"+tabNumber);
        selectedTabContent.toggleAttribute("hidden");
+       selectedTab.setAttribute("aria-selected", "true");
 });
 
-// Progressive enhancement
+/* 
+    Progressive enhancement:
+    Only hide tab content if JS is on
+*/
 window.addEventListener("DOMContentLoaded", () => {
     tabPanelContent.forEach((tabPanel, index) => {
         if(index > 0) {
-            console.log(tabPanel, typeof tabPanel);
             tabPanel.toggleAttribute("hidden");
         }
     });
