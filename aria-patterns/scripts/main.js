@@ -74,3 +74,16 @@ window.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
+
+
+/* Modal */ 
+
+const swordModalTrigger = document.querySelector("#sword-modal-trigger");
+const swordModal = document.querySelector("#sword-modal");
+
+/* 
+    Progressive enhancement - the hide modal only if JS is on 
+*/
+window.addEventListener("DOMContentLoaded", () => {
+    swordModal.toggleAttribute("hidden");
+});
