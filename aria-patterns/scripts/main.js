@@ -55,7 +55,6 @@ document.addEventListener("keydown", (e) => {
     }
 });
 
-// Activating the tab
 tabList.addEventListener("click", (e) => {
        unSelectTab(selectedTab);
        selectedTab = e.target;
