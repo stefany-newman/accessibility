@@ -80,10 +80,24 @@ window.addEventListener("DOMContentLoaded", () => {
 
 const swordModalTrigger = document.querySelector("#sword-modal-trigger");
 const swordModal = document.querySelector("#sword-modal");
+const swordModalCloseButton = document.querySelector("#sword-modal-close-button");
 
 /* 
     Progressive enhancement - the hide modal only if JS is on 
 */
 window.addEventListener("DOMContentLoaded", () => {
     swordModal.toggleAttribute("hidden");
+});
+
+
+// Open modal and focus the close button 
+swordModalTrigger.addEventListener("click", (e) => {
+    swordModal.toggleAttribute("hidden");
+    swordModalCloseButton.focus();
+});
+
+// Close modal and focus the trigger
+swordModalCloseButton.addEventListener("click", (e) => {
+    swordModal.toggleAttribute("hidden");
+    swordModalTrigger.focus();
 });
