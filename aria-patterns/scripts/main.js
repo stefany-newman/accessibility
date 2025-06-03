@@ -85,6 +85,10 @@ const swordModalCloseButton = document.querySelector("#sword-modal-close-button"
 const closeDialog = (dialog) => {
     dialog.toggleAttribute("hidden");
 }
+
+const moveFocus = (element) => {
+    element.focus();
+}
 /* 
     Progressive enhancement - the hide modal only if JS is on 
 */
@@ -107,7 +111,8 @@ swordModalCloseButton.addEventListener("click", (e) => {
 
 
 document.addEventListener("keydown", (e) => {
-    if(e.code === "Escape" && !swordModal.getAttribute("hidden")){
+    if(e.code === "Escape" && swordModal.getAttribute("hidden") === null){
         closeDialog(swordModal);
+        moveFocus(swordModalTrigger);
     }
 });
