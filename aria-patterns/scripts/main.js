@@ -87,9 +87,23 @@ const nextButton = document.querySelector('#next');
 const prevButton = document.querySelector('#prev');
 const galleryImagesArray = Array.from(document.querySelectorAll('.gallery-image'));
 const dotNavigation = document.querySelector('#dot-navigation');
-
+const numberOfImages = galleryImagesArray.length;
 
 nextButton.addEventListener("click", (e) => {
+    const currentImageElement = document.querySelector("img:not([hidden])");
     let currentImageIndex = galleryImagesArray.findIndex(image => !image.hidden);
-    console.log(currentImageIndex);
+    let nextImageIndex = (currentImageIndex < (numberOfImages-1)) ? ++currentImageIndex : 0;
+    const nextImageElement = document.querySelectorAll(".gallery-image")[nextImageIndex];
+    currentImageElement.toggleAttribute("hidden");
+    nextImageElement.toggleAttribute("hidden");
 });
+
+prevButton.addEventListener("click", (e) => {
+    const currentImageElement = document.querySelector("img:not([hidden])");
+    let currentImageIndex = galleryImagesArray.findIndex(image => !image.hidden);
+    let prevImageIndex = (currentImageIndex > 0) ? --currentImageIndex : (numberOfImages -1);
+    const prevImageElement = document.querySelectorAll(".gallery-image")[prevImageIndex];
+    currentImageElement.toggleAttribute("hidden");
+    prevImageElement.toggleAttribute("hidden");
+});
+
