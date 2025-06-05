@@ -417,6 +417,6 @@ img{
     top: 50%;
   }
   & .next{
-    right: 0
+    right: 0;
   }
 }

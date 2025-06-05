@@ -76,3 +76,20 @@ window.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
+
+
+/* Gallery */
+
+
+const galleryContainer = document.querySelector('#gallery-container');
+const nextPrevControls = document.querySelector('#next-prev-controls');
+const nextButton = document.querySelector('#next');
+const prevButton = document.querySelector('#prev');
+const galleryImagesArray = Array.from(document.querySelectorAll('.gallery-image'));
+const dotNavigation = document.querySelector('#dot-navigation');
+
+
+nextButton.addEventListener("click", (e) => {
+    let currentImageIndex = galleryImagesArray.findIndex(str => !("hidden" in str));
+    console.log(currentImageIndex);
+});
