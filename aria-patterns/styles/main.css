@@ -403,3 +403,19 @@ img{
         flex:50%;
     }
 }
+
+.gallery-section{
+  & .gallery-container{
+    border: 5px solid black;
+    position: relative;
+  }
+  /* & .next-prev-controls, & .dot-navigation{
+    position: absolute;
+  } */
+  & .next, & .prev{
+    position: absolute;
+  }
+  & .next{
+    right: 0
+  }
+}
