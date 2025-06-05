@@ -112,7 +112,7 @@ swordModalCloseButton.addEventListener("click", (e) => {
 
 document.addEventListener("keydown", (e) => {
     if(e.code === "Escape" && swordModal.getAttribute("hidden") === null){
-        closeDialog(swordModal);
+        closeDialog(swordModal);    
         moveFocus(swordModalTrigger);
     }
 });
