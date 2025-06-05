@@ -90,6 +90,6 @@ const dotNavigation = document.querySelector('#dot-navigation');
 
 
 nextButton.addEventListener("click", (e) => {
-    let currentImageIndex = galleryImagesArray.findIndex(str => !("hidden" in str));
+    let currentImageIndex = galleryImagesArray.findIndex(image => !image.hidden);
     console.log(currentImageIndex);
 });
