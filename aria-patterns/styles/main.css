@@ -409,11 +409,12 @@ img{
     border: 5px solid black;
     position: relative;
   }
-  /* & .next-prev-controls, & .dot-navigation{
-    position: absolute;
-  } */
+  & .dot-navigation{
+    text-align: center;
+  } 
   & .next, & .prev{
     position: absolute;
+    top: 50%;
   }
   & .next{
     right: 0
