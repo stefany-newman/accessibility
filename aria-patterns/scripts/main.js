@@ -76,3 +76,41 @@ window.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
+
+
+/* Gallery */
+
+
+const galleryContainer = document.querySelector('#gallery-container');
+const nextPrevControls = document.querySelector('#next-prev-controls');
+const nextButton = document.querySelector('#next');
+const prevButton = document.querySelector('#prev');
+const galleryImagesArray = Array.from(document.querySelectorAll('.gallery-image'));
+const dots = document.querySelectorAll('.dot');
+const dotsParent = document.querySelector("#dot-navigation");
+const numberOfImages = galleryImagesArray.length;
+
+nextButton.addEventListener("click", (e) => {
+    const currentImageElement = document.querySelector("img:not([hidden])");
+    let currentImageIndex = galleryImagesArray.findIndex(image => !image.hidden);
+    let nextImageIndex = (currentImageIndex < (numberOfImages-1)) ? ++currentImageIndex : 0;
+    const nextImageElement = document.querySelectorAll(".gallery-image")[nextImageIndex];
+    currentImageElement.toggleAttribute("hidden");
+    nextImageElement.toggleAttribute("hidden");
+});
+
+prevButton.addEventListener("click", (e) => {
+    const currentImageElement = document.querySelector("img:not([hidden])");
+    let currentImageIndex = galleryImagesArray.findIndex(image => !image.hidden);
+    let prevImageIndex = (currentImageIndex > 0) ? --currentImageIndex : (numberOfImages -1);
+    const prevImageElement = document.querySelectorAll(".gallery-image")[prevImageIndex];
+    currentImageElement.toggleAttribute("hidden");
+    prevImageElement.toggleAttribute("hidden");
+});
+
+
+dotsParent.addEventListener("click", (e) => {
+    const currentImageElement = document.querySelector("img:not([hidden])");
+    let clickedDot = e.target;
+    console.log(clickedDot);
+});
