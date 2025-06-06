@@ -86,7 +86,8 @@ const nextPrevControls = document.querySelector('#next-prev-controls');
 const nextButton = document.querySelector('#next');
 const prevButton = document.querySelector('#prev');
 const galleryImagesArray = Array.from(document.querySelectorAll('.gallery-image'));
-const dotNavigation = document.querySelector('#dot-navigation');
+const dots = document.querySelectorAll('.dot');
+const dotsParent = document.querySelector("#dot-navigation");
 const numberOfImages = galleryImagesArray.length;
 
 nextButton.addEventListener("click", (e) => {
@@ -107,3 +108,9 @@ prevButton.addEventListener("click", (e) => {
     prevImageElement.toggleAttribute("hidden");
 });
 
+
+dotsParent.addEventListener("click", (e) => {
+    const currentImageElement = document.querySelector("img:not([hidden])");
+    let clickedDot = e.target;
+    console.log(clickedDot);
+});
