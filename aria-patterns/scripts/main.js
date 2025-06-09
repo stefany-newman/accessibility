@@ -113,10 +113,13 @@ dotsParent.addEventListener("click", (e) => {
     if(!clickedDot.classList.contains("dot")){
         return;
     }
+    const activeDot = document.querySelector(".dot[aria-selected='true'");
     const currentImageElement = document.querySelector("img:not([hidden])");
     const dotsArray = Array.from(dots);
     let currentDotIndex = dotsArray.findIndex(dot => dot === clickedDot);
     let nextImage = document.querySelectorAll(".gallery-image")[currentDotIndex];
     currentImageElement.toggleAttribute("hidden");
     nextImage.toggleAttribute("hidden");
+    activeDot.setAttribute("aria-selected", "false");
+    clickedDot.setAttribute("aria-selected", "true");
 });
