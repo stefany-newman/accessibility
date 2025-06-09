@@ -419,7 +419,7 @@ img{
 }
 
 .dot-navigation{
-  & [aria-selected="true"]{
+  & [aria-current="true"]{
     border: 5px solid green;
   }
   & ol{
