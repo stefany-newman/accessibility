@@ -110,7 +110,14 @@ prevButton.addEventListener("click", (e) => {
 
 
 dotsParent.addEventListener("click", (e) => {
-    const currentImageElement = document.querySelector("img:not([hidden])");
     let clickedDot = e.target;
-    console.log(clickedDot);
+    if(!clickedDot.classList.contains("dot")){
+        return;
+    }
+    const currentImageElement = document.querySelector("img:not([hidden])");
+    const dotsArray = Array.from(dots);
+    let currentDotIndex = dotsArray.findIndex(dot => dot === clickedDot);
+    let nextImage = document.querySelectorAll(".gallery-image")[currentDotIndex];
+    currentImageElement.toggleAttribute("hidden");
+    nextImage.toggleAttribute("hidden");
 });
