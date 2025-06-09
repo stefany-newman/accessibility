@@ -420,3 +420,9 @@ img{
     right: 0;
   }
 }
+
+.dot-navigation{
+  & [aria-selected="true"]{
+    border: 5px solid green;
+  }
+}
