@@ -80,7 +80,6 @@ window.addEventListener("DOMContentLoaded", () => {
 
 /* Gallery */
 
-
 const galleryContainer = document.querySelector('#gallery-container');
 const nextPrevControls = document.querySelector('#next-prev-controls');
 const nextButton = document.querySelector('#next');
