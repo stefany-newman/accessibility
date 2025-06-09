@@ -409,9 +409,6 @@ img{
     border: 5px solid black;
     position: relative;
   }
-  & .dot-navigation{
-    text-align: center;
-  } 
   & .next, & .prev{
     position: absolute;
     top: 50%;
@@ -424,5 +421,10 @@ img{
 .dot-navigation{
   & [aria-selected="true"]{
     border: 5px solid green;
+  }
+  & ol{
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
   }
 }
