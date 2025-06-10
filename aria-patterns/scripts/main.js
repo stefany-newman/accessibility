@@ -76,3 +76,50 @@ window.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
+
+
+/* Gallery */
+
+const galleryContainer = document.querySelector('#gallery-container');
+const nextPrevControls = document.querySelector('#next-prev-controls');
+const nextButton = document.querySelector('#next');
+const prevButton = document.querySelector('#prev');
+const galleryImagesArray = Array.from(document.querySelectorAll('.gallery-image'));
+const dots = document.querySelectorAll('.dot');
+const dotsParent = document.querySelector("#dot-navigation");
+const numberOfImages = galleryImagesArray.length;
+
+nextButton.addEventListener("click", (e) => {
+    const currentImageElement = document.querySelector("img:not([hidden])");
+    let currentImageIndex = galleryImagesArray.findIndex(image => !image.hidden);
+    let nextImageIndex = (currentImageIndex < (numberOfImages-1)) ? ++currentImageIndex : 0;
+    const nextImageElement = document.querySelectorAll(".gallery-image")[nextImageIndex];
+    currentImageElement.toggleAttribute("hidden");
+    nextImageElement.toggleAttribute("hidden");
+});
+
+prevButton.addEventListener("click", (e) => {
+    const currentImageElement = document.querySelector("img:not([hidden])");
+    let currentImageIndex = galleryImagesArray.findIndex(image => !image.hidden);
+    let prevImageIndex = (currentImageIndex > 0) ? --currentImageIndex : (numberOfImages -1);
+    const prevImageElement = document.querySelectorAll(".gallery-image")[prevImageIndex];
+    currentImageElement.toggleAttribute("hidden");
+    prevImageElement.toggleAttribute("hidden");
+});
+
+
+dotsParent.addEventListener("click", (e) => {
+    let clickedDot = e.target;
+    if(!clickedDot.classList.contains("dot")){
+        return;
+    }
+    const activeDot = document.querySelector(".dot[aria-current='true'");
+    const currentImageElement = document.querySelector("img:not([hidden])");
+    const dotsArray = Array.from(dots);
+    let currentDotIndex = dotsArray.findIndex(dot => dot === clickedDot);
+    let nextImage = document.querySelectorAll(".gallery-image")[currentDotIndex];
+    currentImageElement.toggleAttribute("hidden");
+    nextImage.toggleAttribute("hidden");
+    activeDot.setAttribute("aria-current", "false");
+    clickedDot.setAttribute("aria-current", "true");
+});
