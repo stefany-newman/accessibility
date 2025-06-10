@@ -345,7 +345,7 @@
    */
   
   [hidden] {
-    display: none;
+    display: none !important;
   }
 
   /* Tabs */ 
@@ -389,17 +389,32 @@ img{
     width: 100%;
 }
 
+.model-child img{
+    max-width: 200px;
+    display: block;
+}
+
+.modal{
+    display: flex;
+    justify-self: center;
+}
+
+.modal-content{
+    max-width: 980px;
+}
+
 .modal-content{
     & .top-content{
         display: flex;
         align-items: self-start;
+        justify-content: space-between;
     }
     & .bottom-content{
         display: flex;
-        flex-wrap: wrap;
+        justify-content: space-around;
     }
 
     & .model-child{
-        flex:50%;
+        
     }
 }
