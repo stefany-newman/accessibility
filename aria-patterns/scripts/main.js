@@ -88,7 +88,7 @@ const galleryImagesArray = Array.from(document.querySelectorAll('.gallery-image'
 const dots = document.querySelectorAll('.dot');
 const dotsParent = document.querySelector("#dot-navigation");
 const numberOfImages = galleryImagesArray.length;
-
+/*
 nextButton.addEventListener("click", (e) => {
     const currentImageElement = document.querySelector("img:not([hidden])");
     const activeDot = document.querySelector(".dot[aria-current='true'");
@@ -100,7 +100,8 @@ nextButton.addEventListener("click", (e) => {
     activeDot.setAttribute("aria-current", "false");
     dots[nextImageIndex].setAttribute("aria-current", "true");
 });
-
+*/
+/*
 prevButton.addEventListener("click", (e) => {
     const currentImageElement = document.querySelector("img:not([hidden])");
     const activeDot = document.querySelector(".dot[aria-current='true'");
@@ -112,7 +113,7 @@ prevButton.addEventListener("click", (e) => {
     activeDot.setAttribute("aria-current", "false");
     dots[prevImageIndex].setAttribute("aria-current", "true");
 });
-
+*/
 
 dotsParent.addEventListener("click", (e) => {
     let clickedDot = e.target;
@@ -128,4 +129,26 @@ dotsParent.addEventListener("click", (e) => {
     nextImage.toggleAttribute("hidden");
     activeDot.setAttribute("aria-current", "false");
     clickedDot.setAttribute("aria-current", "true");
+});
+
+nextPrevControls.addEventListener("click", (e) => {
+    const currentImageElement = document.querySelector("img:not([hidden])");
+    const activeDot = document.querySelector(".dot[aria-current='true'");
+    let currentImageIndex = galleryImagesArray.findIndex(image => !image.hidden);
+    const isAButtonClicked = (e.target.tagName === "BUTTON") ? true : false;
+    const buttonType = (type) => (type === e.target.id);
+    const switchImageIndex = (type) => {
+        if(type === "next"){
+            return currentImageIndex < (numberOfImages-1) ? ++currentImageIndex : 0;
+        }
+        if(type === "prev"){
+            return (currentImageIndex > 0) ? --currentImageIndex : (numberOfImages -1);
+        }
+    };
+    if(isAButtonClicked) {
+        let differentImageIndex = (buttonType("next")) ? switchImageIndex("next") : switchImageIndex("prev");
+        currentImageElement.toggleAttribute("hidden");
+        document.querySelectorAll(".gallery-image")[differentImageIndex].toggleAttribute("hidden");
+    }
+
 });

@@ -453,6 +453,9 @@ img{
         fill: var(--forest-green);
       }
     }
+    & svg{
+      pointer-events: none;
+    }
   }
   & .next{
     right: 0;
