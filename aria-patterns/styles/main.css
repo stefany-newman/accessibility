@@ -12,6 +12,9 @@
   
   --sage-green-50: #50C878;
   --mint-green-50: #98FF98;
+  --forest-green: #2E6F40;
+
+  --black: #000;
 }
 
 
@@ -365,6 +368,18 @@
     display: none;
   }
 
+/* Custom Misc Styles */
+button{
+  all:unset;
+  cursor: pointer;
+  border: 1px solid transparent;
+  &:focus{
+    outline: 1px solid var(--forest-green);
+  }
+}
+*:focus{
+  outline: 1px solid var(--forest-green);
+}
   /* Tabs */ 
 .tablist{
     display:flex;
@@ -429,6 +444,15 @@ img{
   & .next, & .prev{
     position: absolute;
     top: 50%;
+    /* Per WCAG 2.5.8 and 2.5.5 */
+    width: 44px; 
+    height: 44px;
+    fill:#000;
+    &:hover{
+      svg{
+        fill: var(--forest-green);
+      }
+    }
   }
   & .next{
     right: 0;
