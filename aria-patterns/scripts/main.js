@@ -91,20 +91,26 @@ const numberOfImages = galleryImagesArray.length;
 
 nextButton.addEventListener("click", (e) => {
     const currentImageElement = document.querySelector("img:not([hidden])");
+    const activeDot = document.querySelector(".dot[aria-current='true'");
     let currentImageIndex = galleryImagesArray.findIndex(image => !image.hidden);
     let nextImageIndex = (currentImageIndex < (numberOfImages-1)) ? ++currentImageIndex : 0;
     const nextImageElement = document.querySelectorAll(".gallery-image")[nextImageIndex];
     currentImageElement.toggleAttribute("hidden");
     nextImageElement.toggleAttribute("hidden");
+    activeDot.setAttribute("aria-current", "false");
+    dots[nextImageIndex].setAttribute("aria-current", "true");
 });
 
 prevButton.addEventListener("click", (e) => {
     const currentImageElement = document.querySelector("img:not([hidden])");
+    const activeDot = document.querySelector(".dot[aria-current='true'");
     let currentImageIndex = galleryImagesArray.findIndex(image => !image.hidden);
     let prevImageIndex = (currentImageIndex > 0) ? --currentImageIndex : (numberOfImages -1);
     const prevImageElement = document.querySelectorAll(".gallery-image")[prevImageIndex];
     currentImageElement.toggleAttribute("hidden");
     prevImageElement.toggleAttribute("hidden");
+    activeDot.setAttribute("aria-current", "false");
+    dots[prevImageIndex].setAttribute("aria-current", "true");
 });
 
 
