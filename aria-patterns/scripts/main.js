@@ -123,7 +123,7 @@ dotsParent.addEventListener("click", (e) => {
     const activeDot = document.querySelector(".dot[aria-current='true'");
     const currentImageElement = document.querySelector("img:not([hidden])");
     const dotsArray = Array.from(dots);
-    let nextDotIndex = dotsArray.findIndex(dot => dot === clickedDot);
+    let nextDotIndex = dotsArray.findIndex(dot => dot === isDotClicked);
         deactivateDot(activeDot);
         deactivateImage(currentImageElement);
         activate(nextDotIndex, "image");
