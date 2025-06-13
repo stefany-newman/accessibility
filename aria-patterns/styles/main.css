@@ -378,7 +378,7 @@ button{
   }
 }
 *:focus{
-  outline: 1px solid var(--forest-green);
+  outline: 3px solid var(--forest-green);
 }
   /* Tabs */ 
 .tablist{
@@ -464,11 +464,24 @@ img{
 
 .dot-navigation{
   & [aria-current="true"]{
-    border: 5px solid green;
+    background-color: #000;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 -960 960 960' width='24px' fill='%23ffffff'%3E%3Cpath d='M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
   }
   & ol{
     list-style-type: none;
     display: flex;
     justify-content: center;
   }
+  & .dot{
+    border-radius: 50%;
+    border: 1px solid var(--black);
+    outline: 1 px solid white;
+    /* Per WCAG 2.5.8 and 2.5.5 */
+    width: 44px; 
+    height: 44px;
+    display: inline-block;
+  }
 }
+
