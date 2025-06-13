@@ -6,15 +6,15 @@ let selectedTabContent = document.querySelector("#tabpanel-content-1");
 
 const getTabNumber = (selectedTab) => {
     return Number(selectedTab.id.substring(selectedTab.id.indexOf("-")+1));
-}
+};
 
 const unSelectTab = (element) => {
     element.setAttribute("tabindex", "-1");
-}
+};
 const selectTab = (element) => {
     element.setAttribute("tabindex", "0");
     element.focus();
-} 
+};
 
 const moveFocusToNextTab = (currentTab) => {
     unSelectTab(currentTab);
@@ -23,7 +23,7 @@ const moveFocusToNextTab = (currentTab) => {
     const nextTabNumber = tabNumber < tabs.length ? tabNumber + 1 : 1;
     const nextTab = document.querySelector("#tab-"+nextTabNumber);
     selectTab(nextTab);
-}
+};
 
 const moveFocusToPreviousTab = (currentTab) =>{
     unSelectTab(currentTab);
@@ -32,7 +32,7 @@ const moveFocusToPreviousTab = (currentTab) =>{
     const previousTabNumber = tabNumber <= 1 ? tabs.length : tabNumber - 1;
     const nextTab = document.querySelector("#tab-"+previousTabNumber);
     selectTab(nextTab);
-}
+};
 
 // TO DO - Add a function to check if tab panels 
 // have an interactive element as a first child 
@@ -79,41 +79,11 @@ window.addEventListener("DOMContentLoaded", () => {
 
 
 /* Gallery */
-
-const galleryContainer = document.querySelector('#gallery-container');
 const nextPrevControls = document.querySelector('#next-prev-controls');
-const nextButton = document.querySelector('#next');
-const prevButton = document.querySelector('#prev');
 const galleryImagesArray = Array.from(document.querySelectorAll('.gallery-image'));
 const dots = document.querySelectorAll('.dot');
 const dotsParent = document.querySelector("#dot-navigation");
 const numberOfImages = galleryImagesArray.length;
-/*
-nextButton.addEventListener("click", (e) => {
-    const currentImageElement = document.querySelector("img:not([hidden])");
-    const activeDot = document.querySelector(".dot[aria-current='true'");
-    let currentImageIndex = galleryImagesArray.findIndex(image => !image.hidden);
-    let nextImageIndex = (currentImageIndex < (numberOfImages-1)) ? ++currentImageIndex : 0;
-    const nextImageElement = document.querySelectorAll(".gallery-image")[nextImageIndex];
-    currentImageElement.toggleAttribute("hidden");
-    nextImageElement.toggleAttribute("hidden");
-    activeDot.setAttribute("aria-current", "false");
-    dots[nextImageIndex].setAttribute("aria-current", "true");
-});
-*/
-/*
-prevButton.addEventListener("click", (e) => {
-    const currentImageElement = document.querySelector("img:not([hidden])");
-    const activeDot = document.querySelector(".dot[aria-current='true'");
-    let currentImageIndex = galleryImagesArray.findIndex(image => !image.hidden);
-    let prevImageIndex = (currentImageIndex > 0) ? --currentImageIndex : (numberOfImages -1);
-    const prevImageElement = document.querySelectorAll(".gallery-image")[prevImageIndex];
-    currentImageElement.toggleAttribute("hidden");
-    prevImageElement.toggleAttribute("hidden");
-    activeDot.setAttribute("aria-current", "false");
-    dots[prevImageIndex].setAttribute("aria-current", "true");
-});
-*/
 
 dotsParent.addEventListener("click", (e) => {
     let isDotClicked = e.target;
