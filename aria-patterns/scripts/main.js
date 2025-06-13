@@ -149,6 +149,11 @@ nextPrevControls.addEventListener("click", (e) => {
         let differentImageIndex = (buttonType("next")) ? switchImageIndex("next") : switchImageIndex("prev");
         currentImageElement.toggleAttribute("hidden");
         document.querySelectorAll(".gallery-image")[differentImageIndex].toggleAttribute("hidden");
+
+        activeDot.setAttribute("aria-current", "false");
+        dots[differentImageIndex].setAttribute("aria-current", "true");
     }
 
 });
+
+//const changeImage(index) =>
