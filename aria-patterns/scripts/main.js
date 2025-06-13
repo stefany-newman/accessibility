@@ -116,19 +116,18 @@ prevButton.addEventListener("click", (e) => {
 */
 
 dotsParent.addEventListener("click", (e) => {
-    let clickedDot = e.target;
-    if(!clickedDot.classList.contains("dot")){
+    let isDotClicked = e.target;
+    if(!isDotClicked.classList.contains("dot")){
         return;
     }
     const activeDot = document.querySelector(".dot[aria-current='true'");
     const currentImageElement = document.querySelector("img:not([hidden])");
     const dotsArray = Array.from(dots);
-    let currentDotIndex = dotsArray.findIndex(dot => dot === clickedDot);
-    let nextImage = document.querySelectorAll(".gallery-image")[currentDotIndex];
-    currentImageElement.toggleAttribute("hidden");
-    nextImage.toggleAttribute("hidden");
-    activeDot.setAttribute("aria-current", "false");
-    clickedDot.setAttribute("aria-current", "true");
+    let nextDotIndex = dotsArray.findIndex(dot => dot === clickedDot);
+        deactivateDot(activeDot);
+        deactivateImage(currentImageElement);
+        activate(nextDotIndex, "image");
+        activate(nextDotIndex, "dot");
 });
 
 nextPrevControls.addEventListener("click", (e) => {
@@ -147,13 +146,28 @@ nextPrevControls.addEventListener("click", (e) => {
     };
     if(isAButtonClicked) {
         let differentImageIndex = (buttonType("next")) ? switchImageIndex("next") : switchImageIndex("prev");
-        currentImageElement.toggleAttribute("hidden");
-        document.querySelectorAll(".gallery-image")[differentImageIndex].toggleAttribute("hidden");
-
-        activeDot.setAttribute("aria-current", "false");
-        dots[differentImageIndex].setAttribute("aria-current", "true");
+        deactivateDot(activeDot);
+        deactivateImage(currentImageElement);
+        activate(differentImageIndex, "image");
+        activate(differentImageIndex, "dot");
     }
 
 });
 
-//const changeImage(index) =>
+const activate = (index, type) => {
+    if(type === "image")
+    {
+        document.querySelectorAll(".gallery-image")[index].toggleAttribute("hidden");
+    }
+    if(type === "dot")
+    {
+        dots[index].setAttribute("aria-current", "true");
+    }
+};
+const deactivateDot = (dot) => {
+        dot.setAttribute("aria-current", "false");
+};
+const deactivateImage = (image) => {
+        image.toggleAttribute("hidden");
+
+};
