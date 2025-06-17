@@ -448,7 +448,6 @@ img{
     width: 44px; 
     height: 44px;
     fill:#000;
-    filter:invert(1);
     &:hover{
       svg{
         fill: var(--forest-green);
@@ -466,10 +465,7 @@ img{
 .dot-navigation{
   & [aria-current="true"]{
     background-color: #000;
-    filter:invert(1);
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 -960 960 960' width='24px' fill='%23ffffff'%3E%3Cpath d='M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: center;
+    background-blend-mode: revert;
   }
   & ol{
     list-style-type: none;
