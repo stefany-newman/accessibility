@@ -472,7 +472,10 @@ img{
   & ol{
     list-style-type: none;
     display: flex;
+    gap: 10px;
     justify-content: center;
+    margin: 0;
+    padding: 0;
   }
   & .dot{
     border-radius: 50%;
