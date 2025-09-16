@@ -76,3 +76,45 @@ window.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
+
+
+/******************************  Modal ********************************/ 
+
+const swordModalTrigger = document.querySelector("#sword-modal-trigger");
+const swordModal = document.querySelector("#sword-modal");
+const swordModalCloseButton = document.querySelector("#sword-modal-close-button");
+
+const closeDialog = (dialog) => {
+    dialog.toggleAttribute("hidden");
+}
+
+const moveFocus = (element) => {
+    element.focus();
+}
+/* 
+    Progressive enhancement - the hide modal only if JS is on 
+*/
+window.addEventListener("DOMContentLoaded", () => {
+    swordModal.toggleAttribute("hidden");
+});
+
+
+// Open modal and focus the close button 
+swordModalTrigger.addEventListener("click", (e) => {
+    swordModal.toggleAttribute("hidden");
+    swordModalCloseButton.focus();
+});
+
+// Close modal and focus the trigger
+swordModalCloseButton.addEventListener("click", (e) => {
+    swordModal.toggleAttribute("hidden");
+    swordModalTrigger.focus();
+});
+
+
+document.addEventListener("keydown", (e) => {
+    if(e.code === "Escape" && swordModal.getAttribute("hidden") === null){
+        closeDialog(swordModal);    
+        moveFocus(swordModalTrigger);
+    }
+});
