@@ -1,3 +1,23 @@
+:root {
+  --violet-50:  #f5f3ff;
+  --violet-100: #ede9fe;
+  --violet-200: #ddd6fe;
+  --violet-300: #c4b5fd;
+  --violet-400: #a78bfa;
+  --violet-500: #8b5cf6; /* Primary */
+  --violet-600: #7c3aed;
+  --violet-700: #6d28d9;
+  --violet-800: #5b21b6;
+  --violet-900: #4c1d95;
+  
+  --sage-green-50: #50C878;
+  --mint-green-50: #98FF98;
+  --forest-green: #2E6F40;
+
+  --black: #000;
+}
+
+
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 
 /* Document
@@ -348,6 +368,18 @@
     display: none;
   }
 
+/* Custom Misc Styles */
+button{
+  all:unset;
+  cursor: pointer;
+  border: 1px solid transparent;
+  &:focus{
+    outline: 1px solid var(--forest-green);
+  }
+}
+*:focus{
+  outline: 3px solid var(--forest-green);
+}
   /* Tabs */ 
 .tablist{
     display:flex;
@@ -403,3 +435,54 @@ img{
         flex:50%;
     }
 }
+
+.gallery-section{
+  & .gallery-container{
+    border: 5px solid black;
+    position: relative;
+  }
+  & .next, & .prev{
+    position: absolute;
+    top: 50%;
+    /* Per WCAG 2.5.8 and 2.5.5 */
+    width: 44px; 
+    height: 44px;
+    fill:#000;
+    &:hover{
+      svg{
+        fill: var(--forest-green);
+      }
+    }
+    & svg{
+      pointer-events: none;
+    }
+  }
+  & .next{
+    right: 0;
+  }
+}
+
+.dot-navigation{
+  & [aria-current="true"]{
+    background-color: #000;
+    background-blend-mode: revert;
+  }
+  & ol{
+    list-style-type: none;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+  }
+  & .dot{
+    border-radius: 50%;
+    border: 1px solid var(--black);
+    outline: 1 px solid white;
+    /* Per WCAG 2.5.8 and 2.5.5 */
+    width: 44px; 
+    height: 44px;
+    display: inline-block;
+  }
+}
+
