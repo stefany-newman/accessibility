@@ -1,39 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script defer src="scripts/main.js"></script>
+        <link rel="stylesheet" href="styles/main.css" />
+        <title>Aria Patterns</title>
+    </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script defer src="scripts/main.js"></script>
-    <link rel="stylesheet" href="styles/main.css">
-    <title>Aria Patterns</title>
-</head>
-
-<body>
-    <section>
-        <h1 class="heading" tabindex="-1">
-            Aria widgets I have coded:
-        </h1>
-        <ul>
-            <li>
-                <a href="https://www.w3.org/WAI/ARIA/apg/patterns/tabs/">Tab</a>
-            </li>
-            <li>
-                <a href="https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/">Modal Dialog</a>
-            </li>
-            <li>
-                <a href="https://www.w3.org/WAI/ARIA/apg/patterns/slider/">Image Gallery / Slider </a>
-            </li>
-        </ul>
-    </section>
+    <body>
+        <section>
+            <h1 class="heading" tabindex="-1">Aria widgets I have coded:</h1>
+            <ul>
+                <li>
+                    <a href="https://www.w3.org/WAI/ARIA/apg/patterns/tabs/">Tab</a>
+                </li>
+                <li>
+                    <a href="https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/">Modal Dialog</a>
+                </li>
+                <li>
+                    <a href="https://www.w3.org/WAI/ARIA/apg/patterns/slider/">Image Gallery / Slider </a>
+                </li>
+            </ul>
+        </section>
         <section class="tabs-parent">
             <h2>Tabs (Manual Activation)</h2>
-                <div class="tablist" role="tablist" id="tablist">
-                    <button type="button" role="tab" id="tab-1" aria-selected="true" tabindex="0" class="tab">Tab 1</button>
-                    <button type="button" role="tab" id="tab-2" aria-selected="false" tabindex="-1" class="tab">Tab 2</button>
-                    <button type="button" role="tab" id="tab-3" aria-selected="false" tabindex="-1" class="tab">Tab 3</button>
-                    <button type="button" role="tab" id="tab-4" aria-selected="false" tabindex="-1" class="tab">Tab 4</button>
-                </div>
+            <div class="tablist" role="tablist" id="tablist">
+                <button type="button" role="tab" id="tab-1" aria-selected="true" tabindex="0" class="tab">Tab 1</button>
+                <button type="button" role="tab" id="tab-2" aria-selected="false" tabindex="-1" class="tab">Tab 2</button>
+                <button type="button" role="tab" id="tab-3" aria-selected="false" tabindex="-1" class="tab">Tab 3</button>
+                <button type="button" role="tab" id="tab-4" aria-selected="false" tabindex="-1" class="tab">Tab 4</button>
+            </div>
             <div class="tabpanel tab-dividers" role="tabpanel">
                 <div aria-labelledby="tab-1" class="tabpanel-content" id="tabpanel-content-1">Content 1</div>
                 <div aria-labelledby="tab-2" class="tabpanel-content" id="tabpanel-content-2">Content 2</div>
@@ -41,5 +38,9 @@
                 <div aria-labelledby="tab-4" class="tabpanel-content" id="tabpanel-content-4">Content 4</div>
             </div>
         </section>
-</body>
+        <section>
+            <h2>Code for testing 2.5.8 Target Size (Minimum) AA</h2>
+            <span class="testing-circle"></span>
+        </section>
+    </body>
 </html>
