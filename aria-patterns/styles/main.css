@@ -487,14 +487,14 @@ img {
         display: inline-block;
     }
 }
+/* Tests 2.5.8 Target Size (Minimum) */
 .testing-circle {
     display: inline-block;
     width: 24px;
     height: 24px;
-    outline: 1px solid red;
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
     border-radius: 50%;
+    outline: 1px solid red;
+    position: relative;
+    left: 0;
+    top: 0;
 }
